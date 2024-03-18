@@ -3,8 +3,9 @@ package main_test
 import (
 	"context"
 	"fmt"
-	"math/rand/v2"
 	"testing"
+
+	"math/rand/v2"
 )
 
 const key = "key"
@@ -13,6 +14,8 @@ func BenchmarkContext(b *testing.B) {
 	benchmarks := []struct {
 		times uint64
 	}{
+		{10},
+		{100},
 		{1_000},
 		{10_000},
 		{100_000},
