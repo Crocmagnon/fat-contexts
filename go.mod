@@ -1,4 +1,4 @@
-module trash
+module github.com/Crocmagnon/fat-contexts
 
 go 1.22.0
 
