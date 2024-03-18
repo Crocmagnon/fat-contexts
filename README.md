@@ -1,6 +1,6 @@
 # fat contexts
 
-This repo holds code for [On context-induced performance bottleneck in Go](https://gabnotes.org/fat-contexts/).
+This repo holds code for [Context-induced performance bottleneck in Go](https://gabnotes.org/fat-contexts/).
 
 Reproduce my results:
 
@@ -8,15 +8,19 @@ Reproduce my results:
 $ go test -bench=.
 goos: darwin
 goarch: arm64
-pkg: trash
-BenchmarkContext/shadow_1000-8         	   19352	     61271 ns/op
-BenchmarkContext/fat_1000-8            	     532	   2187010 ns/op
-BenchmarkContext/shadow_10000-8        	    1903	    639371 ns/op
-BenchmarkContext/fat_10000-8           	       5	 219400100 ns/op
-BenchmarkContext/shadow_100000-8       	     194	   6374344 ns/op
-BenchmarkContext/fat_100000-8          	       1	21851940167 ns/op
+pkg: github.com/Crocmagnon/fat-contexts
+BenchmarkContext/shadow_10-8         	 2261456	       763.0 ns/op
+BenchmarkContext/fat_10-8            	 1662235	       743.6 ns/op
+BenchmarkContext/shadow_100-8        	  236544	      4888 ns/op
+BenchmarkContext/fat_100-8           	   53778	     22275 ns/op
+BenchmarkContext/shadow_1000-8       	   24499	     48474 ns/op
+BenchmarkContext/fat_1000-8          	     711	   1698109 ns/op
+BenchmarkContext/shadow_10000-8      	    2472	    489804 ns/op
+BenchmarkContext/fat_10000-8         	       6	 170819118 ns/op
+BenchmarkContext/shadow_100000-8     	     248	   4938549 ns/op
+BenchmarkContext/fat_100000-8        	       1	17150788208 ns/op
 PASS
-ok  	trash	30.801s
+ok  	github.com/Crocmagnon/fat-contexts	31.454s
 $ go run ./generate/main.go > data
 $ go run ./plot/main.go
 $ open plot.html
